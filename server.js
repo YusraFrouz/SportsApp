@@ -28,8 +28,6 @@ app.listen(3000,(err) => {
 
 mongoose.connect('mongodb://localhost/myapp');
 
-
-
 app.post('/', (req,res) =>{
     let user = new User(req.body);
     user.save().then(user => {

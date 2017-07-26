@@ -41,12 +41,12 @@
                 </li>
                 <li class="xn-title">Navigation</li>
                 <li class="active">
-                    <a href="index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Home</span></a>
+                    <a href="home.view.html"><span class="fa fa-desktop"></span> <span class="xn-text">Home</span></a>
                 </li>
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Profile</span></a>
                     <ul>
-                        <li><a href="index.html"><span class="fa fa-image"></span> Timeline </a></li>
+                        <li><a href="timeline.view.html"><span class="fa fa-image"></span> Timeline </a></li>
                         <li><a href="all-friends.view.html"><span class="fa fa-user"></span> Friends </a></li>
                         <li><a href="all-activities.view.html"><span class="fa fa-users"></span> All Activities </a></li>
                     </ul>
@@ -69,13 +69,6 @@
                         <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
-                    <!-- SEARCH -->
-                    <li class="xn-search">
-                        <form role="form">
-                            <input type="text" name="search" placeholder="Search..."/>
-                        </form>
-                    </li>   
-                    <!-- END SEARCH -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
                         <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
@@ -94,56 +87,12 @@
                 <div class="page-content-wrap">
                     
                     <div class="row">
-                        <div class="col-md-6">
-                            
-                            <!-- START TIMELINE FILTER -->                            
-                            <div class="panel panel-default">                                
-                                <div class="panel-body">
-                                    <h3>Timeline filter</h3>
-                                    <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                                                                
-                                        <div class="col-md-8">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-search"></span></span>
-                                                <input type="text" class="form-control" placeholder="Keywords"/>
-                                            </div>
-                                        </div>    
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <span class="input-group-addon add-on"><span class="fa fa-calendar"></span></span>
-                                                <input type="text" class="form-control datepicker" value="2014-10-06"/>                                                
-                                            </div>                                            
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-8">
-                                            <div class="btn-group btn-group-justified">  
-                                                <a href="#" class="btn btn-primary active">All</a>
-                                                <a href="#" class="btn btn-primary">Year</a>
-                                                <a href="#" class="btn btn-primary">Month</a>
-                                                <a href="#" class="btn btn-primary">Week</a>
-                                            </div>                                         
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="pull-right">
-                                                <button class="btn btn-success"><span class="fa fa-refresh"></span> UPDATE</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- END TIMELINE FILTER -->
-                            
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             
                             <!-- START NEW RECORD -->
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <h3>What happened?</h3>
+                                    <h3>Share your activity...</h3>
                                     <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <div class="col-md-12">
@@ -156,12 +105,11 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="btn-group pull-left">
-                                                <button class="btn btn-primary"><span class="fa fa-camera"></span></button>
                                                 <button class="btn btn-primary"><span class="fa fa-map-marker"></span></button>
-                                                <button class="btn btn-primary"><span class="fa fa-calendar"></span></button>
+                                                <input type="file" class="fileinput btn-primary" name="filename3" id="filename3" data-filename-placement="inside" title="Upload location" />
                                             </div>
                                             <div class="pull-right">
-                                                <button class="btn btn-danger"><span class="fa fa-share"></span> SEND</button>
+                                                <button class="btn btn-primary"><span class="fa fa-share"></span>SHARE</button>
                                             </div>
                                         </div>
                                     </div>
@@ -438,8 +386,11 @@
         
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>        
         <script type="text/javascript" src="../assets/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
+
+        <script type="text/javascript" src="../assets/js/plugins/bootstrap/bootstrap-file-input.js"></script>
         <script type="text/javascript" src="../assets/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="../assets/js/plugins/bootstrap/bootstrap-select.js"></script>        
+        <script type="text/javascript" src="../assets/js/plugins/bootstrap/bootstrap-select.js"></script>   
+             
         <!-- END THIS PAGE PLUGINS-->        
 
         <!-- START TEMPLATE -->
