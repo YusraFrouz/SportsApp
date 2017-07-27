@@ -1,15 +1,15 @@
-var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-sequence');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-sequence');
+const Schema = mongoose.Schema;
 
-var friendListSchema = new Schema({
+const friendListSchema = new Schema({
     user: {
-        userId: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         name: String,
         ref : 'User'
     },
     friends: [{
-        friendId: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         name: String,
         ref : 'User'
     }]
@@ -17,6 +17,6 @@ var friendListSchema = new Schema({
 
 friendListSchema.plugin(AutoIncrement, {inc_field: 'friendListId'});
 
-var FriendList = mongoose.model('Doctor', doctorSchema);
+var FriendList = mongoose.model('FriendList', friendListSchema);
 
 module.exports = FriendList;
