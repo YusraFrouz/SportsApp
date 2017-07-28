@@ -2,20 +2,32 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     // methodOverride = require('method-override'),
-    mongoose = require('mongoose');
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    cookieParser = require('cookie-parser'),
+    mongoose = require('mongoose'),
+    passport = require('passport');
 
 app.use(bodyParser.json());
-// app.use(express.static(__dirname, 'public'));
-// app.use(favicon(__dirname, 'public', 'favicon.ico'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use('/',express.static(__dirname + "/public"));
 
-// routes ==================================================
-// require('./server/routes')(app); // configure our routes
+mongoose.connect('mongodb://localhost/kashif');
+
 require('./server/models/user.model.js');
+require('./server/config/passport.js');
 
-const User = require('./server/routes/user.route.js');
+let routesApi = require('./server/routes/index');
 
-app.get('/', (req,res) =>{
-    res.send("Hello World");
+app.use(passport.initialize());
+app.use('/api', routesApi);
+
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
 });
 
 app.listen(3000,(err) => {
@@ -24,15 +36,8 @@ app.listen(3000,(err) => {
         console.error("Error: "+ err);
     }
     console.log("running on port 3000");
-})
+});
 
-mongoose.connect('mongodb://localhost/myapp');
-
-
-
-app.post('/', (req,res) =>{
-    let user = new User(req.body);
-    user.save().then(user => {
-         res.send(user);
-    }); 
-})
+app.get('/',(req,res) => {
+    res.sendFile(__dirname+'/public/views/login.view.html');
+});

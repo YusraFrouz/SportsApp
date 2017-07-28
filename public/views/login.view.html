@@ -11,11 +11,16 @@
         <!-- END META SECTION -->
         
         <!-- CSS INCLUDE -->        
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="assets/css/theme-default.css"/>
         <!-- EOF CSS INCLUDE -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="main.js"></script>
+        <script src="services/authentication.service.js"></script>
+        <script src="controllers.angular/register.controller.js"></script>
+        <script src="controllers.angular/login.controller.js"></script>
 
     </head>
-    <body>
+    <body ng-app ="sportsApp">
         <div class="login-container">
         
             <div class="login-box animated fadeInDown">
@@ -24,58 +29,58 @@
                         <center>
                             <div class="login-title"><strong>SIGN IN</strong> to your account </div>
                         </center>
-                    <form action="index.html" class="form-horizontal" method="post">
+                    <form class="form-horizontal" ng-controller="loginCtrl">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Username"/>
+                            <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="password" class="form-control" placeholder="Password"/>
+                            <input type="password" class="form-control" placeholder="Password" ng-model="credentials.password"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <button class="btn btn-info btn-block"><b>SIGN IN</b></button>
+                            <button class="btn btn-info btn-block" ng-click="login(credentials)"><b>SIGN IN</b></button>
                         </div>
                     </div>
                         <hr />
                     </form>
 
-                    <form action="" class="form-horizontal" method="post">
+                    <form class="form-horizontal" ng-controller="registerCtrl">
                         <div class="login-title">
                             <center><p> or <strong>SIGN UP</strong></p>
                             </center>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Full Name"/>
+                                <input type="text" class="form-control" placeholder="Full Name" ng-model="credentials.fullname"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Gender (Male/Female)"/>
+                                <input type="text" class="form-control" placeholder="Gender (Male/Female)" ng-model="credentials.gender"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Date of Birth (YYYY/MM/DD)"/>
+                                <input type="text" class="form-control" placeholder="Date of Birth (YYYY/MM/DD)" ng-model="credentials.dob"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Username"/>
+                                <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="password" class="form-control" placeholder="Password"/>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="credentials.password"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button class="btn btn-info btn-block"><b>SIGN UP</b></button>
+                                <button class="btn btn-info btn-block" ng-click="register(credentials)"><b>SIGN UP</b></button>
                             </div>
                         </div>
 
