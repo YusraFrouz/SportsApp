@@ -1,19 +1,30 @@
 const mongoose = require('mongoose'),
   crypto = require('crypto'),
   jwt = require('jsonwebtoken'),
+  AutoIncrement = require('mongoose-sequence'),
   userSchema = new mongoose.Schema({
+    fullname: {
+      type: String,
+      required: true
+    },
     email: {
       type: String,
       unique: true,
       required: true
     },
-    username: {
+    gender: {
       type: String,
+      required: true
+    },
+    birthday: {
+      type: Date,
       required: true
     },
     hash: String,
     salt: String
   });
+
+  userSchema.plugin(AutoIncrement, {inc_field: 'userId'});
 
 userSchema.methods.setPassword = (password) => {
   let salt = crypto.randomBytes(16).toString('hex');
@@ -30,19 +41,25 @@ userSchema.methods.checkPassword = (password,salt,hash) => {
   return hash === newHash;
 };
 
-userSchema.methods.generateJwt = () => {
+userSchema.methods.generateJwt = (id,fullname,email) => {
   let expiry = new Date();
   expiry.setDate(expiry.getDate() + 7);
+  console.log(id);
+  console.log(email);
+  console.log(fullname);
+  console.log("aks");
 
   return jwt.sign({
-    _id: this._id,
-    email: this.email,
-    name: this.name,
+    _id: id,
+    email: email,
+    fullname: fullname,
     exp: parseInt(expiry.getTime()/1000),
   }, "Yuzzi is awesome"); //remember to remove this from code
 };
 
 mongoose.model('User',userSchema); 
+
+
 
 
 

@@ -3,12 +3,7 @@ const passport = require('passport'),
     User = mongoose.model('User');
 
 module.exports.register = (req, res) => {
-    let user = new User();
-
-    console.log(req.body);
-
-    user.username = req.body.username;
-    user.email = req.body.email;
+    let user = new User(req.body);
 
     var encryptData = user.setPassword(req.body.password);
 
@@ -22,7 +17,7 @@ module.exports.register = (req, res) => {
             console.log(err);
         }
         var token;
-        token = user.generateJwt();
+        token = user.generateJwt(user._id,user.fullname,user.email);
         console.log(token);
         res.status(200);
         res.json({
@@ -35,15 +30,19 @@ module.exports.login = (req, res) => {
 
     passport.authenticate('local', (err, user, info) => {
         if (err) {
+            console.log(err);
             res.status(404).json(err);
             return;
         }
 
         if (user) {
-            res.status(200).json({
-                'user': user
+            var token;
+            token = user.generateJwt(user._id,user.fullname,user.email);
+            console.log(token);
+            res.status(200);
+            res.json({
+                "token": token
             });
-            return;
         } else {
             res.status(401).json(info);
         }

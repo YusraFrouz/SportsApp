@@ -1,1 +1,1 @@
-angular.module('sportsApp',[]);
+angular.module('sportsApp',['720kb.datepicker']);

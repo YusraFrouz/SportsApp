@@ -17,6 +17,7 @@
 
     var isLoggedIn = function() {
       var token = getToken();
+      console.log(token);
       var payload;
 
       if(token){
@@ -38,23 +39,23 @@
         payload = JSON.parse(payload);
         return {
           email : payload.email,
-          name : payload.name
+          fullname : payload.fullname
         };
       }
     };
 
     register = function(user) {
       console.log(user);
-      return $http.post('/api/register', user).then(function(data){
-        console.log(data);
-        saveToken(data.token);
+      return $http.post('/api/register', user).then(function(response){
+      console.log(response);
+        saveToken(response.data.token);
       });
     };
 
     login = function(user) {
-      return $http.post('/api/login', user).then(function(data) {
-        console.log(data);
-        // saveToken(data.token);
+      return $http.post('/api/login', user).then(function(response) {
+        console.log(response);
+        saveToken(response.data.token);
       });
     };
 

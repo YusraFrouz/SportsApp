@@ -17,6 +17,7 @@
     "jsonwebtoken": "^7.4.1",
     "md5": "^2.2.1",
     "mongoose": "^4.11.4",
+    "mongoose-sequence": "^3.2.0",
     "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",

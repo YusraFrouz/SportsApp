@@ -41,3 +41,4 @@ app.listen(3000,(err) => {
 app.get('/',(req,res) => {
     res.sendFile(__dirname+'/public/views/login.view.html');
 });
+
