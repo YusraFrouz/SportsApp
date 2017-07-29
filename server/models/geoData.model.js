@@ -19,7 +19,11 @@ const GeojsonfeatureSchema = new Schema({
             time: Date,
             coordTimes: [{ type: Date }]
         }
-    }]
+    }],
+    post: {
+        type: Schema.Types.ObjectId,
+        ref: 'Activity'
+    },
 });
 
 var GeoData = mongoose.model('GeoData', GeojsonfeatureSchema);

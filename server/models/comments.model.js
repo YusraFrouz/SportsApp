@@ -5,21 +5,19 @@ const Schema = mongoose.Schema;
 var commentSchema = new Schema({
     activity: {
         type: Schema.Types.ObjectId,
-        user: {
+        ref: 'User'
+    },
+    user: {
         type: Schema.Types.ObjectId,
-        name: String,
-        ref : 'User'
-        },
-        commentList: [{
-        message: String,
-        datetime: datetime,
-        status : String
-        }]
-    },    
+        ref: 'Activity'
+    },
+    message: String,
+    datetime: datetime,
+    status: String
 });
 
-commentSchema.plugin(AutoIncrement, {inc_field: 'commentSchemaId'});
+commentSchema.plugin(autoIncrement, { inc_field: 'commentSchemaId' });
 
 var Comments = mongoose.model('Comments', commentSchema);
 
-module.export= Comments;
+module.export = Comments;

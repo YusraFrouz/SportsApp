@@ -1,4 +1,8 @@
-const app = require('express'),
-    mongoose = require('mongoose');
+let express = require('express'),
+    Router = express.Router();
 
-var User = mongoose.model('User');
+let userController = require('../controllers.server/users.controllers');
+
+Router.post('/',userController.register);
+
+module.exports = Router;

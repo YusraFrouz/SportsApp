@@ -5,13 +5,13 @@ const md5 = require('md5');
 
 var userSchema = new Schema({
   fullname:  String,
+  email: String,
   gender: String,
-  birthDate: Date,
-  username: String,
+  birthDate: Date,  
   password: String
 });
 
-userSchema.plugin(AutoIncrement, {inc_field: 'userId'});
+userSchema.plugin(autoIncrement, {inc_field: 'userId'});
 
 var User = mongoose.model('User', userSchema);
 

@@ -6,17 +6,28 @@ const express = require('express'),
 
 app.use(bodyParser.json());
 // app.use(express.static(__dirname, 'public'));
-// app.use(favicon(__dirname, 'public', 'favicon.ico'));
 
-// routes ==================================================
-// require('./server/routes')(app); // configure our routes
+// models
 require('./server/models/user.model.js');
-
+require('./server/models/activities.model.js');
+// routes
 const User = require('./server/routes/user.route.js');
 
+app.use('/',express.static(__dirname));
+
 app.get('/', (req,res) =>{
-    res.send("Hello World");
+    res.sendFile(__dirname + '/public/views/all-activities.view.html');
+
 });
+
+
+app.use('/',express.static(__dirname + "/public"));
+
+const userRouter = require('./server/routes/user.route.js');
+const activityRouter = require('./server/routes/activities.route.js');
+
+app.use('/user',userRouter);
+app.use('/activity',activityRouter);
 
 app.listen(3000,(err) => {
     
@@ -26,7 +37,8 @@ app.listen(3000,(err) => {
     console.log("running on port 3000");
 })
 
-mongoose.connect('mongodb://localhost/myapp');
+
+mongoose.connect('mongodb://localhost/sportsApp');
 
 app.post('/', (req,res) =>{
     let user = new User(req.body);

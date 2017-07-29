@@ -1,6 +1,8 @@
 angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', function mapCtrl($scope, geoLocationservice) {
     let vm = this;
 
+    $scope.mode = "walking";
+
     let get = () => {
         geoLocationservice.get().then(response => {
 

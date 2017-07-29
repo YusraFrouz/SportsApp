@@ -4,20 +4,16 @@ const Schema = mongoose.Schema;
 
 var activitySchema = new Schema({
     user: {
-        type: Schema.Types.ObjectId,
-        name: String,
-        ref : 'User'
+        type: Number,
+        ref: 'User'
     },
-    activity: [{
-        type: Schema.Types.ObjectId,
-        datetime: datetime,
-        status : String
-
-    }]
+    datetime: Date,
+    status: String,
+    activity_type: String
 });
 
-activitySchema.plugin(AutoIncrement, {inc_field: 'activitySchemaId'});
+activitySchema.plugin(autoIncrement, { inc_field: 'activitySchemaId' });
 
 var Activity = mongoose.model('Activity', activitySchema);
 
-module.export= Activity;
+module.export = Activity;
