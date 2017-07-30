@@ -17,8 +17,7 @@ const mongoose = require('mongoose'),
       required: true
     },
     birthday: {
-      type: Date,
-      required: true
+      type: Date
     },
     hash: String,
     salt: String
