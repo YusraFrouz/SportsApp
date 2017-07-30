@@ -1,20 +1,61 @@
-const mongoose = require('mongoose');
-const autoIncrement = require('mongoose-sequence');
-const Schema = mongoose.Schema;
-const md5 = require('md5');
+const mongoose = require('mongoose'),
+  crypto = require('crypto'),
+  jwt = require('jsonwebtoken'),
+  AutoIncrement = require('mongoose-sequence'),
+  userSchema = new mongoose.Schema({
+    fullname: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: true
+    },
+    gender: {
+      type: String,
+      required: true
+    },
+    birthday: {
+      type: Date,
+      required: true
+    },
+    hash: String,
+    salt: String
+  });
 
-var userSchema = new Schema({
-  fullname:  String,
-  email: String,
-  gender: String,
-  birthDate: Date,  
-  password: String
-});
+  userSchema.plugin(AutoIncrement, {inc_field: 'userId'});
 
-userSchema.plugin(autoIncrement, {inc_field: 'userId'});
+userSchema.methods.setPassword = (password) => {
+  let salt = crypto.randomBytes(16).toString('hex');
+  let hash = crypto.pbkdf2Sync(password,salt, 1000, 64).toString('hex');
+  return {
+    'salt':salt,
+    'hash':hash
+  };
+};
 
-var User = mongoose.model('User', userSchema);
+userSchema.methods.checkPassword = (password,salt,hash) => {
+  let newHash = crypto.pbkdf2Sync(password,salt, 1000, 64).toString('hex');
 
-module.export= User;
+  return hash === newHash;
+};
+
+userSchema.methods.generateJwt = (id,fullname,email) => {
+  let expiry = new Date();
+  expiry.setDate(expiry.getDate() + 7);
+
+  return jwt.sign({
+    _id: id,
+    email: email,
+    fullname: fullname,
+    exp: parseInt(expiry.getTime()/1000),
+  }, "Yuzzi is awesome"); //remember to remove this from code
+};
+
+mongoose.model('User',userSchema); 
+
+
+
 
 
