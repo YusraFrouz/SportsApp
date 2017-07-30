@@ -25,7 +25,7 @@
                 <hr />
             </form>
 
-            <form action="" class="form-horizontal" method="post">
+            <form class="form-horizontal">
                 <div class="login-title">
                     <center>
                         <p> or <strong>SIGN UP</strong></p>
@@ -33,12 +33,12 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" placeholder="Full Name" />
+                        <input type="text" class="form-control" ng-model="regCred.fullname" placeholder="Full Name" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" placeholder="Email" />
+                        <input type="text" class="form-control" ng-model="regCred.email" placeholder="Email" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -46,16 +46,16 @@
                         <input type="text" class="form-control" placeholder="Gender :" disabled/>
                     </div>
                     <div class="col-md-4">
-                        <input type="radio" class="iradio" name="iradio" /><strong> Male</strong>
+                        <input type="radio" class="iradio" name="iradio" ng-model="regCred.gender" value="male"/><strong> Male</strong>
                     </div>
                     <div class="col-md-4">
-                        <input type="radio" class="iradio" name="iradio" /><strong> Female</strong>
+                        <input type="radio" class="iradio" name="iradio" ng-model="regCred.gender" value="female"/><strong> Female</strong>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
                         <div class="input-group">
-                            <input type="text" placeholder="Date of Birth" id="dp-8" class="form-control  datepicker" data-date-format="dd-mm-yyyy" />
+                            <input type="text" placeholder="Date of Birth" id="dp-8" class="form-control  datepicker" ng-model="regCred.birthday" data-date-format="dd-mm-yyyy" />
                             <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -64,12 +64,12 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input type="password" class="form-control" placeholder="Password" />
+                        <input type="password" class="form-control" placeholder="Password" ng-model="regCred.password"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <button class="btn btn-info btn-block"><b>SIGN UP</b></button>
+                        <button class="btn btn-info btn-block" ng-click="register(regCred)"><b>SIGN UP</b></button>
                     </div>
                 </div>
 
