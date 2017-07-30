@@ -19,3 +19,8 @@ angular.module('ngMap').controller('authCtrl', ['$location', 'authentication', '
         });
     }
 }]);
+
+
+$scope.login = true;
+
+authentication.logout();
