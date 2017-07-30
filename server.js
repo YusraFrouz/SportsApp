@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use('/',express.static(__dirname + "/public"));
+app.use('/modules',express.static(__dirname + "/node_modules"));
+app.use('/modules',express.static(__dirname + "/bower_components"));
 
 // models
 require('./server/models/user.model.js');
