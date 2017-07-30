@@ -18,21 +18,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/angular.js"></script>
-    
 </head>
 
 <body>
-    
-    <div class="page-container" ng-hide="login">
-      <div ng-include="'/views/include/sidebar.html'" class="sidebar-view"  ></div>
-
-      <div class="page-content" ng-hide="login">
-          <div ng-include="'/views/include/navbar.html'" class="navbar-view"  ></div>
-
-        <div ng-view></div>
-      </div>
-    </div>
+    <div ng-view></div>
 
     <!-- START PRELOADS -->
     <audio id="audio-alert" src="../assets/audio/alert.mp3" preload="auto"></audio>
@@ -82,7 +71,7 @@
     <script type="text/javascript" src="/assets/js/demo_maps.js"></script>
     <!-- END TEMPLATE -->
 
-    <script>            
+    <!-- <script>            
             document.getElementById('links').onclick = function (event) {
                 event = event || window.event;
                 var target = event.target || event.srcElement,
@@ -95,7 +84,7 @@
                     links = this.getElementsByTagName('a');
                 blueimp.Gallery(links, options);
             };
-        </script>        
+        </script>         -->
 
     <script>
         $(function () {

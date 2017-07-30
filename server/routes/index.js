@@ -1,8 +1,8 @@
 const express = require('express'),
     router = express.Router(),
-    jwt = require('express-jwt'),
+    jwt = require('express-jwt'), //JSON Web Token's are used to securely transmitting information between parties as a JSON object.
     auth = jwt({
-        secret: 'Yuzzi is awesome',
+        secret: '566B597033733676', //Encryption Key
         userProperty: 'payload'
     });
 

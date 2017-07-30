@@ -6,8 +6,8 @@ const express = require('express'),
         userProperty: 'payload'
     });
 
-let ctrlAuth = require('../controllers/authentication');
-let ctrlProfile = require('../controllers/profile');
+let ctrlAuth = require('../controllers.server/authentication');
+let ctrlProfile = require('../controllers.server/profile');
 
 router.get('/profile', auth, ctrlProfile.profileRead);
 

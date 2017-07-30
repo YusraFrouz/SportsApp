@@ -1,4 +1,10 @@
-<!-- START BREADCRUMB -->
+<div class="page-container">
+    <div ng-include="'/views/include/sidebar.html'" class="sidebar-view"></div>
+
+    <div class="page-content">
+        <div ng-include="'/views/include/navbar.html'" class="navbar-view"></div>
+
+        <!-- START BREADCRUMB -->
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="#">Profile</a></li>
@@ -216,5 +222,6 @@
                 <!-- END TIMELINE -->
             </div>
         </div>
+        <!-- END PAGE CONTENT WRAPPER -->
     </div>
-    <!-- END PAGE CONTENT WRAPPER -->
+</div>

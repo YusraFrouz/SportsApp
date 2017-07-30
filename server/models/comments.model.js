@@ -3,16 +3,16 @@ const autoIncrement = require('mongoose-sequence');
 const Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
-    activity: {
-        type: Schema.Types.ObjectId,
+    user: {
+        type: Number,
         ref: 'User'
     },
-    user: {
-        type: Schema.Types.ObjectId,
+    activity: {
+        type: Number,
         ref: 'Activity'
     },
     message: String,
-    datetime: datetime,
+    datetime: Date,
     status: String
 });
 
