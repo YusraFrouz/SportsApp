@@ -3,6 +3,7 @@ const passport = require('passport'),
     User = mongoose.model('User');
 
 module.exports.register = (req, res) => {
+    console.log(req.body);
     let user = new User(req.body);
 
     var encryptData = user.setPassword(req.body.password);

@@ -11,17 +11,18 @@ const express = require('express'),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+
 app.use('/',express.static(__dirname + "/public"));
 
-mongoose.connect('mongodb://localhost/kashif');
+mongoose.connect('mongodb://localhost/sportsApp');
 
 require('./server/models/user.model.js');
+let userRouter = require('./server/routes/user.route');
+
 require('./server/config/passport.js');
 
-let routesApi = require('./server/routes/index');
-
-app.use(passport.initialize());
-app.use('/api', routesApi);
+app.use('/api/user', userRouter);
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
@@ -37,8 +38,3 @@ app.listen(3000,(err) => {
     }
     console.log("running on port 3000");
 });
-
-app.get('/',(req,res) => {
-    res.sendFile(__dirname+'/public/views/login.view.html');
-});
-
