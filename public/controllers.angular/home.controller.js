@@ -1,17 +1,17 @@
-angular.module('ngMap').controller('homeCtrl', ['$scope','$http' ,'authentication', function ($scope, $http, authentication) {
+angular.module('ngMap').controller('homeCtrl', ['$scope', 'FileUploader','$http', 'authentication', function ($scope, FileUploader,$http, authentication) {
     currentUser = authentication.currentUser();
     console.log(currentUser);
 
-    $scope.uploadFile = function (files) {
-        var fd = new FormData();
-        //Take the first selected file
-        fd.append("file", files[0]);
+    $scope.uploadFile = function(files) {
+    var fd = new FormData();
+    //Take the first selected file
+    fd.append("file", files[0]);
 
-        console.log(files);
-        // $http.post('/spectrum/addFile', fd, {
-        //     withCredentials: true,
-        //     headers: { 'Content-Type': undefined },
-        //     transformRequest: angular.identity
-        // }).then(response => console.log(response));
-    }
+    $http.post('geoData/upload', fd, {
+        withCredentials: true,
+        headers: {'Content-Type': undefined },
+        transformRequest: angular.identity
+    }).then(response => {console.log("Success")}).catch((err) => {console.log("failed")});
+
+};
 }]);

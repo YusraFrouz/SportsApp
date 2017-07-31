@@ -35,8 +35,7 @@
                                             <!-- <input type="file" class="fileinput" name="filename3" id="filename3" data-filename-placement="inside" title="Upload location"
                                                onchange="angular.element(this).scope().uploadFile(this.files)" 
                                             /> -->
-                                            <button class="button" ngf-select ng-model="file" name="file" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Upload</button>
-                                        </div>
+                                            <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/> </div>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <select>
                                                     <option>Select Type</option>
