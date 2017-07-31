@@ -16,3 +16,19 @@ module.exports.post = (req,res) => {
         res.json(activity);
     });
 }
+
+module.exports.put = (req, res) => {
+    Activities.update(req.params.id, req.body).then(activity => {
+        res.send(activity);
+    });
+}
+
+
+module.exports.delete = (req, res) => {
+    console.log(req.params);
+    Activities.deleteOne({ 'activitySchemaId': req.params.id }).then(() => {
+        console.log("the record is deleted");
+        res.sendStatus(200);
+    });
+}
+

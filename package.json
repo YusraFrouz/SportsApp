@@ -22,6 +22,7 @@
     "mongoose-sequence": "^3.2.0",
     "mongoose-sequence-plugin": "^1.0.5",
     "morgan": "^1.8.2",
+    "ng-file-upload": "^12.2.13",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

@@ -16,7 +16,7 @@ module.exports.register = (req, res) => {
             console.log(err);
         }
         var token;
-        token = user.generateJwt(user._id,user.fullname,user.email);
+        token = user.generateJwt(user.userId,user.fullname,user.email);
         console.log(token);
         res.status(200);
         res.json({
@@ -36,7 +36,7 @@ module.exports.login = (req, res) => {
 
         if (user) {
             var token;
-            token = user.generateJwt(user._id,user.fullname,user.email);
+            token = user.generateJwt(user.userId,user.fullname,user.email);
             console.log(token);
             res.status(200);
             res.json({
@@ -47,3 +47,8 @@ module.exports.login = (req, res) => {
         }
     })(req, res);
 };
+
+module.exports.list = (req,res) => {
+    let id = req.params.id;
+    
+}

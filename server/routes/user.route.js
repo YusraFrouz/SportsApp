@@ -2,7 +2,7 @@ const express = require('express'),
     router = express.Router(),
     jwt = require('express-jwt'),
     auth = jwt({
-        secret: 'Yuzzi is awesome',
+        secret: 'Yuzzi is awesome', 
         userProperty: 'payload'
     });
 

@@ -11,6 +11,10 @@
                 controller: 'authCtrl'
                 
             })
+            .when('/activities',{
+                templateUrl: '/views/all-activities.view.html',
+                controller: 'activityCtrl'
+            })
             .otherwise({ redirectTo: '/' });
 
         // use the HTML5 History API

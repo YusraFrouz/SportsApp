@@ -45,7 +45,7 @@ userSchema.methods.generateJwt = (id,fullname,email) => {
   expiry.setDate(expiry.getDate() + 7);
 
   return jwt.sign({
-    _id: id,
+    userId: id,
     email: email,
     fullname: fullname,
     exp: parseInt(expiry.getTime()/1000),
