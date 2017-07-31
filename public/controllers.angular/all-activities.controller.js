@@ -1,13 +1,8 @@
-angular.module('ngMap').controller('activityCtrl', ['$scope', 'activityService', function ($scope, activityService) {
+angular.module('ngMap').controller('activityCtrl', ['$scope', 'activityService', 'authentication', function ($scope, activityService, authentication) {
+
+    id = authentication.currentUser(); 
     
-    $scope.sortBy = 'id';
-    $scope.reverse = false;
-    $scope.doSort = function (propName) {
-         $scope.sortBy = propName;
-         $scope.reverse = !$scope.reverse;
-    };
-    
-    activityService.get(1).then(activities => {
+    activityService.get(id).then(activities => {
         $scope.activities = activities;
     })
 
@@ -20,9 +15,16 @@ angular.module('ngMap').controller('activityCtrl', ['$scope', 'activityService',
     $scope.delete = (id) => {
         activityService.delete(id).then(activities => {
             $scope.activities = activities;
-            activityService.get(1).then(activities => {
+            activityService.get(id).then(activities => {
                 $scope.activities = activities;
             })
         })
     }
+
+    $scope.sortBy = 'id';
+    $scope.reverse = false;
+    $scope.doSort = function (propName) {
+         $scope.sortBy = propName;
+         $scope.reverse = !$scope.reverse;
+    };
 }]);
