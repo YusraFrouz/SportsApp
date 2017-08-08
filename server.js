@@ -19,15 +19,23 @@ app.use('/modules',express.static(__dirname + "/bower_components"));
 // models
 require('./server/models/user.model.js');
 require('./server/models/activities.model.js');
+require('./server/models/geoData.model.js');
+require('./server/models/comments.model.js');
+require('./server/models/friends.model.js');
+
 // routes
+const geoDataRouter = require('./server/routes/geoData.route.js');
 const userRouter = require('./server/routes/user.route.js');
 const activityRouter = require('./server/routes/activities.route.js');
+const friendsRouter = require('./server/routes/friends.route.js');
 
 mongoose.connect('mongodb://localhost/sportsApp');
 
 require('./server/config/passport.js');
 
 app.use('/api/user', userRouter);
+app.use('/geoData', geoDataRouter);
+
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
@@ -38,6 +46,7 @@ app.use(function (err, req, res, next) {
 
 app.use('/api',userRouter);
 app.use('/activity',activityRouter);
+app.use('/friends', friendsRouter);
 
 app.get('/',(req,res) => {
     res.sendFile(__dirname+'/index.html');

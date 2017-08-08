@@ -1,9 +1,11 @@
 const mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    Activities = mongoose.model('Activity');
+    Friends = mongoose.model('User');
 
 module.exports.get = (req,res) => {
-    Activities.find({user:req.params.id}).then(activities => {
-        res.json(activities);
+    Friends.find({user:req.params.id}).then(friends => {
+        res.json(friends);
     });
 }
+
+// ( { userId: { $nin: [4] } } )

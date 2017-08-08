@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose'),
+      Schema = mongoose.Schema;
 
 const GeojsonfeatureSchema = new Schema({
     type: { type: String },
@@ -27,5 +27,4 @@ const GeojsonfeatureSchema = new Schema({
 });
 
 var GeoData = mongoose.model('GeoData', GeojsonfeatureSchema);
-
 module.exports = GeoData;

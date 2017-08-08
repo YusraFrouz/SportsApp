@@ -18,11 +18,16 @@ module.exports.post = (req,res) => {
 }
 
 module.exports.put = (req, res) => {
-    Activities.update(req.params.id, req.body).then(activity => {
+    Activities.update(req.params.id).then(activity => {
         res.send(activity);
     });
 }
 
+module.exports.put = (req, res) => {
+    Activities.edit(req.params.id).then(activity => {
+        res.send(activity);
+    });
+}
 
 module.exports.delete = (req, res) => {
     console.log(req.params);

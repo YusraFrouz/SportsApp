@@ -32,11 +32,8 @@
                                     <div class="col-md-12">
                                         <div class="btn-group">
                                             <span class="fa fa-map-marker"></span>
-                                            <!-- <input type="file" class="fileinput" name="filename3" id="filename3" data-filename-placement="inside" title="Upload location"
-                                               onchange="angular.element(this).scope().uploadFile(this.files)" 
-                                            /> -->
-                                            <button class="button" ngf-select ng-model="file" name="file" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Upload Location</button>
-                                        </div>
+
+                                            <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/> </div>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <select>
                                                     <option>Select Type</option>
@@ -68,30 +65,28 @@
 
                         <!-- START TIMELINE ITEM -->
                         <div class="timeline-item timeline-main">
-                            <div class="timeline-date">2014</div>
+                            
+                            <div class="timeline-date" ng-app="ngMap" ng-controller="homeCtrl">{{date | date:'yyyy'}}</div>
                         </div>
                         <!-- END TIMELINE ITEM -->
 
                         <!-- START TIMELINE ITEM -->
                         <div class="timeline-item timeline-item-right">
-                            <div class="timeline-item-info">Yesterday</div>
+                            <div class="timeline-item-info">{{date | date}}</div>
                             <div class="timeline-item-icon"><span class="fa fa-globe"></span></div>
                             <div class="timeline-item-content">
                                 <div class="timeline-heading">
-                                    <img src="../assets/assets/images/users/user2.jpg" /> <a href="#">John Doe</a> added
+                                    <img src="../assets/assets/images/users/avatar.jpg" /> <a href="#">currentUser</a> added
                                     article
                                     <a href="#">Lorem ipsum dolor sit amet</a>
                                 </div>
                                 <div class="timeline-body">
-                                    <img src="assets/images/gallery/nature-4.jpg" class="img-text" width="150" align="left" />
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus dolor id orci
                                         lacinia, eget aliquam velit consequat.</p>
-                                    <p>Vivamus at tincidunt lectus, faucibus condimentum quam. Duis facilisis sem sed eros malesuada,
-                                        vel dignissim diam ornare..</p>
                                 </div>
                                 <div class="timeline-body comments">
                                     <div class="comment-item">
-                                        <img src="assets/images/users/user4.jpg" />
+                                        <img src="../assets/assets/images/users/no-image.jpg" />
                                         <p class="comment-head">
                                             <a href="#">Brad Pitt</a> <span class="text-muted">@bradpitt</span>
                                         </p>
@@ -100,62 +95,21 @@
                                     </div>
                                     <div class="comment-write">
                                         <textarea class="form-control" placeholder="Write a comment" rows="1"></textarea>
+                                        <a href="#"><span class="fa fa-share"></span></a>
                                     </div>
                                 </div>
                                 <div class="timeline-footer">
                                     <a href="#">Read more</a>
                                     <div class="pull-right">
                                         <a href="#"><span class="fa fa-comment"></span> 35</a>
-                                        <a href="#"><span class="fa fa-share"></span></a>
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- END TIMELINE ITEM -->
 
-                        <!-- START TIMELINE ITEM -->
-                        <div class="timeline-item timeline-item-right">
-                            <div class="timeline-item-info">29 Sep 2014</div>
-                            <div class="timeline-item-icon"><span class="fa fa-image"></span></div>
-                            <div class="timeline-item-content">
-                                <div class="timeline-heading">
-                                    <img src="assets/images/users/user.jpg" /> <a href="#">Dmitry Ivaniuk</a> posted <a href="#">@Nature</a>                                    images
-                                </div>
-                                <div class="timeline-body" id="links">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <a href="assets/images/gallery/nature-1.jpg" title="Nature Image 1" data-gallery>
-                                                        <img src="assets/images/gallery/nature-1.jpg" class="img-responsive img-text"/>
-                                                    </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="assets/images/gallery/nature-2.jpg" title="Nature Image 2" data-gallery>
-                                                        <img src="assets/images/gallery/nature-2.jpg" class="img-responsive img-text"/>
-                                                    </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="assets/images/gallery/nature-3.jpg" title="Nature Image 3" data-gallery>
-                                                        <img src="assets/images/gallery/nature-3.jpg" class="img-responsive img-text"/>
-                                                    </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="timeline-body comments">
-                                    <div class="comment-item">
-                                        <img src="assets/images/users/user2.jpg" />
-                                        <p class="comment-head">
-                                            <a href="#">John Doe</a> <span class="text-muted">@johndoe</span>
-                                        </p>
-                                        <p>Amazing! Where did you get it?</p>
-                                        <small class="text-muted">10h ago</small>
-                                    </div>
-                                    <div class="comment-write">
-                                        <textarea class="form-control" placeholder="Write a comment" rows="1"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END TIMELINE ITEM -->
+                        
                     </div>
                     <!-- END TIMELINE -->
 

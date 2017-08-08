@@ -16,6 +16,7 @@ const Router = express.Router();
 Router.post('/upload', upload.single('file'), (req, res) => {
     let file = req.file;
     if (file){
+        
         console.log("Uploaded " + file.originalname + " to " + file.path);
 
         fs.readFile(file.path, (err, data) =>{

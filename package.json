@@ -16,17 +16,20 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-jwt": "^5.3.0",
+    "jsdom": "9.12.0",
     "jsonwebtoken": "^7.4.1",
     "md5": "^2.2.1",
     "mongoose": "^4.11.4",
     "mongoose-sequence": "^3.2.0",
     "mongoose-sequence-plugin": "^1.0.5",
     "morgan": "^1.8.2",
+    "multer": "^1.3.0",
     "ng-file-upload": "^12.2.13",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.4.3",
-    "sweetalert2": "^6.6.6"
+    "sweetalert2": "^6.6.6",
+    "togeojson": "^0.16.0"
   }
 }
