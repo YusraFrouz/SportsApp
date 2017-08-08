@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-      Schema = mongoose.Schema;
+      Schema = mongoose.Schema,
+      AutoIncrement = require('mongoose-sequence');
 
 const GeojsonfeatureSchema = new Schema({
     type: { type: String },
@@ -19,12 +20,10 @@ const GeojsonfeatureSchema = new Schema({
             time: Date,
             coordTimes: [{ type: Date }]
         }
-    }],
-    post: {
-        type: Schema.Types.ObjectId,
-        ref: 'Activity'
-    },
+    }]
 });
+
+GeojsonfeatureSchema.plugin(AutoIncrement, { inc_field: 'geoDataId' });
 
 var GeoData = mongoose.model('GeoData', GeojsonfeatureSchema);
 module.exports = GeoData;

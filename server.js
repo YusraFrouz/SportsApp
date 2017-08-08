@@ -21,7 +21,6 @@ require('./server/models/user.model.js');
 require('./server/models/activities.model.js');
 require('./server/models/geoData.model.js');
 require('./server/models/comments.model.js');
-require('./server/models/friends.model.js');
 
 // routes
 const geoDataRouter = require('./server/routes/geoData.route.js');

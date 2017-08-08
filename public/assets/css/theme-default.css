@@ -3875,6 +3875,8 @@ background: #1caf9a !important;
   width: 100%;
   min-height: 100%;
   background: url("../img/bg.jpg") left top repeat #1b1e24;
+  background-size: cover;
+  
 }
 .login-container .login-box {
   width: 350px;
@@ -3896,6 +3898,7 @@ background: #1caf9a !important;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
+  margin-bottom: 57px;
 }
 .login-container .login-box .login-body .login-title {
   color: #FFF;

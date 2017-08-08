@@ -21,6 +21,9 @@ const userSchema = new Schema({
   birthday: {
     type: Date
   },
+  // picture: {
+  //   type: 
+  // },
   hash: String,
   salt: String
 });

@@ -8,8 +8,12 @@ var activitySchema = new Schema({
         ref: 'User'
     },
     datetime: Date,
-    status: String,
-    activity_type: String
+    description: String,
+    activity_type: String,
+    map: {
+        type: Schema.Types.ObjectId,
+        ref : 'GeoData'
+    }
 });
 
 activitySchema.plugin(autoIncrement, { inc_field: 'activitySchemaId' });

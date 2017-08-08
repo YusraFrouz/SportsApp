@@ -9,12 +9,15 @@ module.exports.get = (req,res) => {
 }
 
 module.exports.post = (req,res) => {
+    console.log(req.body);
     let activity = new Activities(req.body);
     activity.user = req.params.id;
 
     activity.save().then(activity => {
         res.json(activity);
     });
+
+
 }
 
 module.exports.put = (req, res) => {

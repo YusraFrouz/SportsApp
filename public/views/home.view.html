@@ -19,12 +19,12 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <h3>Share your activity...</h3>
-                            <form class="form-horizontal" role="form">
+                            <form class="form-horizontal" role="form" >
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                            <input class="form-control" placeholder="Write something" />
+                                            <input class="form-control" placeholder="Write something" ng-model="post.description"/>
                                         </div>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
 
                                             <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/> </div>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <select>
+                                        <select ng-model="post.activity_type">
                                                     <option>Select Type</option>
                                                     <option>Run</option>
                                                     <option>Bike Ride</option>
@@ -43,7 +43,7 @@
                                                     <option>Hike</option>
                                                 </select> &nbsp;&nbsp;&nbsp;
                                         <div class="pull-right">
-                                            <button class="btn btn-primary"><span class="fa fa-share"></span>SHARE</button>
+                                            <button class="btn btn-primary" ng-click="submit(post)"><span class="fa fa-share"></span>SHARE</button>
                                         </div>
 
 

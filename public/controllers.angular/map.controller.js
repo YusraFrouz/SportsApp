@@ -1,12 +1,15 @@
-angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', function mapCtrl($scope, geoLocationservice) {
+angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', 
+        function mapCtrl($scope, geoLocationservice) {
     let vm = this;
 
     $scope.mode = "walking";
 
     let get = () => {
-        geoLocationservice.get().then(response => {
+        let id=2;
+        geoLocationservice.get(id).then(response => {
 
             formatResponse(response).then(formattedResponse => {
+                console.log(formattedResponse);
                 $scope.origin = formattedResponse.origin;
                 $scope.destination = formattedResponse.destination;
                 $scope.waypoints = formattedResponse.waypoints;
@@ -19,6 +22,8 @@ angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', f
         let waypoints = [];
         let origin = "";
         let destination = "";
+
+        // console.log(response);
 
         return new Promise((resolve, reject) => {
 

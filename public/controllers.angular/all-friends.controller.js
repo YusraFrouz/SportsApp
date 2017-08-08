@@ -1,7 +1,9 @@
-angular.module('ngMap').controller('friendsCtrl', ['$scope', 'friendsService',
-    function ($scope, friendsService) {
+angular.module('ngMap').controller('friendsCtrl', ['$scope', 'friendsService', 'authentication',
+    function ($scope, friendsService, authentication) {
 
-        friendsService.get().then(friends => {
+        id = authentication.currentUser().userId; 
+
+        friendsService.get(id).then(friends => {
             $scope.friends = friends;
         })
 

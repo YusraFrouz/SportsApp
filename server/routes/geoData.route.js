@@ -10,10 +10,12 @@ const upload = multer({ dest: 'uploads/' });
 mongoose.set('debug', false);
 
 const GeoDataModel = mongoose.model('GeoData');
+const ActivityModel = mongoose.model('Activity');
 
 const Router = express.Router();
 
 Router.post('/upload', upload.single('file'), (req, res) => {
+
     let file = req.file;
     if (file){
         
@@ -37,9 +39,11 @@ Router.post('/upload', upload.single('file'), (req, res) => {
     }
 })
 
-Router.get('/', (req,res) => {
-    GeoDataModel.find().then( data => {
-        res.send(data[0]['features'][0]['geometry']['coordinates']);
+Router.get('/:id', (req,res) => {
+    
+    GeoDataModel.findOne({geoDataId:req.params.id}).then( data => {
+        console.log(data);
+        res.send(data['features'][0]['geometry']['coordinates']);
     })
 })
 

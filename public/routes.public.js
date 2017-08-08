@@ -19,6 +19,10 @@
                 templateUrl: '/views/all-friends.view.html',
                 controller: 'friendsCtrl'
             })
+            .when('/map',{
+                templateUrl: '/views/map.view.html',
+                controller: 'mapctrl'
+            })
             .otherwise({ redirectTo: '/' });
 
         // use the HTML5 History API

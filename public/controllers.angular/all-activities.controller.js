@@ -1,6 +1,8 @@
 angular.module('ngMap').controller('activityCtrl', ['$scope', 'activityService', 'authentication', "$rootScope", "$location", 
             function ($scope, activityService, authentication, $rootScope, $location,) {
 
+    $scope.date = new Date();
+                
     id = authentication.currentUser().userId; 
     
     activityService.get(id).then(activities => {
