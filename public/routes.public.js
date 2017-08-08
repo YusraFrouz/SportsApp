@@ -19,7 +19,7 @@
                 templateUrl: '/views/all-friends.view.html',
                 controller: 'friendsCtrl'
             })
-            .when('/map',{
+            .when('/map/:mapId',{
                 templateUrl: '/views/map.view.html',
                 controller: 'mapctrl'
             })

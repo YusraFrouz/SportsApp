@@ -1,12 +1,13 @@
-angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', 
-        function mapCtrl($scope, geoLocationservice) {
+angular.module('ngMap').controller('mapctrl', ['$scope', 'geoLocationservice', '$routeParams',
+        function mapCtrl($scope, geoLocationservice, $routeParams) {
     let vm = this;
 
     $scope.mode = "walking";
 
     let get = () => {
-        let id=2;
-        geoLocationservice.get(id).then(response => {
+            let mapId = $routeParams.mapId;
+            console.log(mapId);
+            geoLocationservice.get(mapId).then(response => {
 
             formatResponse(response).then(formattedResponse => {
                 console.log(formattedResponse);

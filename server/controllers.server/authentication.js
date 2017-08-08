@@ -52,3 +52,11 @@ module.exports.list = (req,res) => {
     let id = req.params.id;
     
 }
+
+module.exports.deleteUser = (req,res) => {
+    let userId = req.params.id;
+    User.remove({userId:userId}).then  ( () => {
+        console.log('deleted account');
+        res.send('deleted');
+    })
+}

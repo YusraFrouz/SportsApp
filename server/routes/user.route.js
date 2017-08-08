@@ -14,4 +14,6 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.post('/register',ctrlAuth.register);
 router.post('/login',ctrlAuth.login);
 
+router.delete('/:id',ctrlAuth.deleteUser);
+
 module.exports = router;

@@ -1,5 +1,5 @@
 <!-- START PAGE SIDEBAR -->
-<div class="page-sidebar">
+<div class="page-sidebar" ng-controller="sidebarCtrl">
     <!-- START X-NAVIGATION -->
     <ul class="x-navigation">
         <li class="xn-logo">
@@ -28,7 +28,10 @@
         </li>
         <li>
             <li><a href="/#!/activities"><span class="fa fa-file"></span><span class="xn-text">All Activities</span></a>
-            </li>
+         </li>
+         <li>
+            <li><a href="" ng-click="showAlert()"><span class="fa fa-file"></span><span class="xn-text">Delete Account</span></a>
+         </li>   
     </ul>
     <!-- END X-NAVIGATION -->
 </div>

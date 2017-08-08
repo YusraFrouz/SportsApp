@@ -57,3 +57,6 @@ app.listen(3000,(err) => {
     }
     console.log("running on port 3000");
 });
+
+
+module.exports = app;

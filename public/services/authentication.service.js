@@ -61,6 +61,12 @@
       window.location.href="/";
     };
 
+    deleteUser = function(userId){
+      return $http.delete("/api/"+userId).then(()=>{
+        console.log('deleted sccessfully');
+      })
+    }
+
     return {
       currentUser : currentUser,
       saveToken : saveToken,
@@ -72,5 +78,6 @@
     };
   }
 
+  
 
 })();
